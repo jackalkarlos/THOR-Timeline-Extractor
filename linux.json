@@ -1,0 +1,19 @@
+{
+  "LinuxModules": [
+    {
+      "name": "UserDir",
+      "conditions": [
+        {
+          "messageContains": "Recently modified profile",
+          "parameters": [
+            ["CREATED", "date"],
+            ["USER", "normal"],
+            ["HOSTNAME", "hostname"],
+            ["UserDir", "no"],
+            ["CREATED", "date"]
+          ]
+        }
+      ]
+    }
+  ]
+}

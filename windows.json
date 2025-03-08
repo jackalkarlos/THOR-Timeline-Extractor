@@ -1,0 +1,569 @@
+{
+  "WindowsModules": [
+    {
+      "name": "UserDir",
+      "conditions": [
+        {
+          "messageContains": "Recently modified profile",
+          "parameters": [
+            [ "MODIFIED", "date" ],
+            [ "USER", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "UserDir", "no" ],
+            [ "CREATED", "date" ]
+          ]
+        },
+        {
+          "messageContains": "Recently created profile",
+          "parameters": [
+            [ "CREATED", "date" ],
+            [ "USER", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "UserDir", "no" ],
+            [ "MODIFIED", "date" ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ArchiveScan",
+      "conditions": [
+        {
+          "messageContains": "Suspicious archived file found",
+          "parameters": [
+            [ "ARCHIVE_CREATED", "date" ],
+            [ "ARCHIVE", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "ArchiveScan", "no" ],
+            [ "FILE", "normal" ]
+          ]
+        },
+        {
+          "messageContains": "Notable archived file found",
+          "parameters": [
+            [ "ARCHIVE_CREATED", "date" ],
+            [ "ARCHIVE", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "ArchiveScan", "no" ],
+            [ "FILE", "normal" ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RegistryChecks",
+      "conditions": [
+        {
+          "messageContains": "YARA Rule Match",
+          "parameters": [
+            [ "MODIFIED", "date" ],
+            [ "STRING", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "RegistryChecks", "no" ],
+            [ "DESC", "normal" ]
+          ]
+        },
+        {
+          "messageContains": "Suspicious file name",
+          "parameters": [
+            [ "MODIFIED", "date" ],
+            [ "ELEMENT", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "RegistryChecks", "no" ],
+            [ "DESC", "normal" ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SHIMCache",
+      "conditions": [
+        {
+          "messageContains": "Notable file name",
+          "parameters": [
+            [ "TIMESTAMP", "date" ],
+            [ "FILE", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "SHIMCache", "no" ],
+            [ "DESC", "normal" ]
+          ]
+        },
+        {
+          "messageContains": "Suspicious file name in SHIM Cache found",
+          "parameters": [
+            [ "TIMESTAMP", "date" ],
+            [ "FILE", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "SHIMCache", "no" ],
+            [ "PATH", "normal" ]
+          ]
+        },
+        {
+          "messageContains": "Found entry in suspicious directory",
+          "parameters": [
+            [ "TIMESTAMP", "date" ],
+            [ "FILE", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "SHIMCache", "no" ],
+            [ "MESSAGE", "normal" ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ScheduledTasks",
+      "conditions": [
+        {
+          "messageContains": "YARA Rule Match in scheduled task",
+          "parameters": [
+            [ "LASTRUN", "date" ],
+            [ "PATH", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "ScheduledTasks", "no" ],
+            [ "ENABLED", "normal" ]
+          ]
+        },
+        {
+          "messageContains": "Scheduled Task with non existing binary",
+          "parameters": [
+            [ "LASTRUN", "date" ],
+            [ "COMMAND", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "ScheduledTasks", "no" ],
+            [ "ENABLED", "normal" ]
+          ]
+        },
+        {
+          "messageContains": "Suspicious file name in scheduled task found",
+          "parameters": [
+            [ "LASTRUN", "date" ],
+            [ "COMMAND", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "ScheduledTasks", "no" ],
+            [ "ENABLED", "normal" ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LogScan",
+      "conditions": [
+        {
+          "messageContains": "YARA Rule Match",
+          "parameters": [
+            [ "LOG_MODIFIED", "date" ],
+            [ "ENTRY", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "LogScan", "no" ],
+            [ "FILE", "normal" ]
+          ]
+        },
+        {
+          "messageContains": "Keyword found in Log Entry",
+          "parameters": [
+            [ "LOG_MODIFIED", "date" ],
+            [ "ENTRY", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "LogScan", "no" ],
+            [ "FILE", "normal" ]
+          ]
+        },
+        {
+          "messageContains": "Suspicious file name in Log Entry found",
+          "parameters": [
+            [ "LOG_MODIFIED", "date" ],
+            [ "ELEMENT", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "LogScan", "no" ],
+            [ "PATTERN", "normal" ]
+          ]
+        },
+        {
+          "messageContains": "YARA Rule Match in scheduled task",
+          "parameters": [
+            [ "LOG_MODIFIED", "date" ],
+            [ "ELEMENT", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "LogScan", "no" ],
+            [ "FILE", "normal" ]
+          ]
+        },
+        {
+          "messageContains": "Scheduled Task with non existing binary",
+          "parameters": [
+            [ "LOG_MODIFIED", "date" ],
+            [ "ELEMENT", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "LogScan", "no" ],
+            [ "FILE", "normal" ]
+          ]
+        },
+        {
+          "messageContains": "Notable file name in Log Entry found",
+          "parameters": [
+            [ "LOG_MODIFIED", "date" ],
+            [ "ELEMENT", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "LogScan", "no" ],
+            [ "FILE", "normal" ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RegistryHive",
+      "conditions": [
+        {
+          "messageContains": "YARA Rule Match",
+          "parameters": [
+            [ "MODIFIED", "date" ],
+            [ "KEY", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "RegistryHive", "no" ],
+            [ "DESCRIPTION", "normal" ]
+          ]
+        },
+        {
+          "messageContains": "Uncommon size of registry key",
+          "parameters": [
+            [ "MODIFIED", "date" ],
+            [ "VALUE_START", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "RegistryHive", "no" ],
+            [ "HIVE", "normal" ]
+          ]
+        },
+        {
+          "messageContains": "MS Office connection",
+          "parameters": [
+            [ "MODIFIED", "date" ],
+            [ "STRING", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "RegistryHive", "no" ],
+            [ "MESSAGE", "normal" ]
+          ]
+        },
+        {
+          "messageContains": "Notable file name",
+          "parameters": [
+            [ "MODIFIED", "date" ],
+            [ "ELEMENT", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "RegistryHive", "no" ],
+            [ "FILE_1", "normal" ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Eventlog",
+      "conditions": [
+        {
+          "messageContains": "Rare process start",
+          "parameters": [
+            [ "TIMESTAMP_1", "date" ],
+            [ "FILE_1", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "Eventlog", "no" ],
+            [ "", "no" ]
+          ]
+        },
+        {
+          "messageContains": "Noteworthy Event ID",
+          "parameters": [
+            [ "EVENT_TIME", "date" ],
+            [ "ENTRY", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "Eventlog", "no" ],
+            [ "EVENT_ID", "normal" ]  
+          ]
+        },
+        {
+          "messageContains": "Suspicious file name in eventlog entry found",
+          "parameters": [
+            [ "EVENT_TIME", "date" ],
+            [ "ELEMENT", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "Eventlog", "no" ],
+            [ "EVENT_LEVEL", "normal" ]
+          ]
+        },
+        {
+          "messageContains": "YARA Rule Match in eventlog",
+          "parameters": [
+            [ "EVENT_TIME", "date" ],
+            [ "ENTRY", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "Eventlog", "no" ],
+            [ "DESCRIPTION", "normal" ]
+          ]
+        },
+        {
+          "messageContains": "Process start in suspicious location",
+          "parameters": [
+            [ "CREATED_1", "date" ],
+            [ "PROCESS", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "Eventlog", "no" ],
+            [ "MESSAGE", "normal" ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Amcache",
+      "conditions": [
+        {
+          "messageContains": "Notable file name in Amcache entry found",
+          "parameters": [
+            [ "FIRST_RUN", "date" ],
+            [ "FILE", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "Amcache", "no" ],
+            [ "DESC", "normal" ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ServiceCheck",
+      "conditions": [
+        {
+          "messageContains": "Service seems to be vulnerable to privilege escalation",
+          "parameters": [
+            [ "MODIFIED", "date" ],
+            [ "IMAGE_PATH", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "ServiceCheck", "no" ],
+            [ "MESSAGE", "normal" ]
+          ]
+        },
+        {
+          "messageContains": "Failure command defined for service",
+          "parameters": [
+            [ "MODIFIED", "date" ],
+            [ "COMMAND", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "ServiceCheck", "no" ],
+            [ "IMAGE_PATH", "normal" ]
+          ]
+        },
+        {
+          "messageContains": "Suspicious failure command defined for service",
+          "parameters": [
+            [ "MODIFIED", "date" ],
+            [ "COMMAND", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "ServiceCheck", "no" ],
+            [ "MESSAGE", "normal" ]
+          ]
+        },
+        {
+          "messageContains": "Error Control for Service has an invalid value",
+          "parameters": [
+            [ "MODIFIED", "date" ],
+            [ "KEY", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "ServiceCheck", "no" ],
+            [ "MESSAGE", "normal" ]
+          ]
+        },
+        {
+          "messageContains": "Service with rare permissions on executable",
+          "parameters": [
+            [ "MODIFIED", "date" ],
+            [ "IMAGE_PATH", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "ServiceCheck", "no" ],
+            [ "KEY", "normal" ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DNSCache",
+      "conditions": [
+        {
+          "messageContains": "",
+          "parameters": [
+            [ "", "no" ],
+            [ "ENTRY", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "DNSCache", "no" ],
+            [ "MESSAGE", "normal" ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WMIStartup",
+      "conditions": [
+        {
+          "messageContains": "Noteworthy startup program WMI Run Key Evaluation",
+          "parameters": [
+            [ "", "no" ],
+            [ "COMMAND", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "WMIStartup", "no" ],
+            [ "LOCATION", "normal" ]
+          ]
+        },
+        {
+          "messageContains": "Noteworthy startup element WMI Run Key Evaluation",
+          "parameters": [
+            [ "", "no" ],
+            [ "COMMAND", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "WMIStartup", "no" ],
+            [ "LOCATION", "normal" ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Firewall",
+      "conditions": [
+        {
+          "messageContains": "",
+          "parameters": [
+            [ "", "no" ],
+            [ "MESSAGE", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "Firewall", "no" ],
+            [ "SIGNATURE", "normal" ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EVTX",
+      "conditions": [
+        {
+          "messageContains": "Sigma match",
+          "parameters": [
+            [ "EVENT_TIME", "date" ],
+            [ "ENTRY", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "EVTX", "no" ],
+            [ "FILESCANENTRY", "filescanentry" ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Filescan",
+      "conditions": [
+        {
+          "messageContains": "Possibly Dangerous file found",
+          "parameters": [
+            ["CREATED", "date"],
+            ["FILE", "normal"],
+            ["HOSTNAME", "hostname"],
+            ["Filescan", "no"],
+            ["DESC", "normal"]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Archive",
+      "conditions": [
+        {
+          "messageContains": "",
+          "parameters": [
+            [ "CREATED", "date" ],
+            [ "ARCHIVE", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "Archive", "no" ],
+            [ "FILE", "normal" ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hotfixcheck",
+      "conditions": [
+        {
+          "messageContains": "",
+          "parameters": [
+            [ "", "no" ],
+            [ "MESSAGE", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "Hotfixcheck", "no" ],
+            [ "", "no" ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LoggedIn",
+      "conditions": [
+        {
+          "messageContains": "Currently logged in user",
+          "parameters": [
+            [ "", "no" ],
+            [ "USER", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "LoggedIn", "no" ],
+            [ "MESSAGE", "normal" ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hosts",
+      "conditions": [
+        {
+          "messageContains": "Suspicious entry found in Hosts file",
+          "parameters": [
+            [ "", "no" ],
+            [ "ENTRY", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "Hosts", "no" ],
+            [ "IP", "normal" ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NetworkShares",
+      "conditions": [
+        {
+          "messageContains": "Non default or uncommon",
+          "parameters": [
+            [ "", "no" ],
+            [ "PATH", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "NetworkShares", "no" ],
+            [ "SHARE_NAME", "normal" ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WER",
+      "conditions": [
+        {
+          "messageContains": "Error Report - Found AppCrash in uncommon folder",
+          "parameters": [
+            [ "DATE", "date" ],
+            [ "FILE", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "WER", "no" ],
+            [ "APPPATH", "normal" ]
+          ]
+        },
+        {
+          "messageContains": "Error Report - Found AppHang in uncommon folder",
+          "parameters": [
+            [ "DATE", "date" ],
+            [ "FILE", "normal" ],
+            [ "HOSTNAME", "hostname" ],
+            [ "WER", "no" ],
+            [ "APPPATH", "normal" ]
+          ]
+        }
+      ]
+    }
+  ]
+}
